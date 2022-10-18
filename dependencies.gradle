@@ -5,7 +5,7 @@ ext {
 
     versions = [
             "kotlin_core": "1.7.0",
-            "kotlin_lifecycle_runtime": "2.3.1",
+            "lifecycle": "2.5.1",
             "lifecycleViewModelCompose": "2.4.1",
 
             "compose": "1.2.0",
@@ -15,10 +15,14 @@ ext {
             "rxJava": "3.0.0",
 
             "retrofit2": "2.9.0",
-            
-            "timber": "5.0.1",
 
             "moshi": "1.14.0",
+
+            "exoplayer": "2.18.1",
+
+            "timber": "5.0.1",
+
+            "leakCanary": "2.9.1",
 
             //For Testing
             "junit": "4.13.2",
@@ -32,11 +36,15 @@ ext {
 
     androidx = [
             coreKtx: "androidx.core:core-ktx:${versions.kotlin_core}",
-            lifecycleRuntimeKtx: "androidx.lifecycle:lifecycle-runtime-ktx:${versions.kotlin_lifecycle_runtime}",
+
+            viewModelKtx: "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle}",
+            liveDataKtx: "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycle}",
             lifecycleViewModelCompose: "androidx.lifecycle:lifecycle-viewmodel-compose:${versions.lifecycleViewModelCompose}",
+            lifecycleCompiler: "androidx.lifecycle:lifecycle-compiler:${versions.lifecycle}",
+
 
             testExtJunit: "androidx.test.ext:junit:${versions.test_extension}",
-            testExpressoCore: "androidx.test.espresso:espresso-core:${versions.test_extension}"
+            testExpressoCore: "androidx.test.espresso:espresso-core:${versions.expresso_core}"
     ]
 
     compose = [
@@ -47,6 +55,12 @@ ext {
             uiTooling: "androidx.compose.ui:ui-tooling-preview:${versions.compose}",
             uiTestManifest: "androidx.compose.ui:ui-test-manifest:${versions.compose}",
             uiTestJUnit4: "androidx.compose.ui:ui-test-junit4:${versions.compose}"
+    ]
+
+    di = [
+            hilt: "com.google.dagger:hilt-android:2.44",
+            hiltCompiler: "com.google.dagger:hilt-compiler:2.44",
+            hiltTesting: "com.google.dagger:hilt-android-testing:2.44",
     ]
 
     reactiveX = [
@@ -65,8 +79,12 @@ ext {
             moshiCodegen: "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
     ]
 
-    utils = [
-            timber: "com.jakewharton.timber:timber:${versions.timber}"
+    video = [
+            exoplayer: "com.google.android.exoplayer:exoplayer:${versions.exoplayer}"
+    ]
 
+    utils = [
+            timber: "com.jakewharton.timber:timber:${versions.timber}",
+            leakCanary: "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}"
     ]
 }

@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id "org.jetbrains.kotlin.kapt"
 }
+
+apply plugin: 'com.google.dagger.hilt.android'
 
 android {
     compileSdk rootProject.ext.compileSdkVersion
@@ -49,7 +52,9 @@ dependencies {
     implementation project(path: ':data')
 
     implementation androidx.coreKtx
-    implementation androidx.lifecycleRuntimeKtx
+    implementation androidx.viewModelKtx
+    implementation androidx.liveDataKtx
+    kapt androidx.lifecycleCompiler
     implementation androidx.lifecycleViewModelCompose
 
     //Compose
@@ -59,9 +64,20 @@ dependencies {
     implementation compose.uiTooling
     implementation compose.runtimeLiveData
 
+    //Dependency injection
+    //Hilt
+    implementation di.hilt
+    kapt di.hiltCompiler
+    androidTestImplementation di.hiltTesting
+    kaptAndroidTest di.hiltCompiler
+    testImplementation di.hiltTesting
+    kaptTest di.hiltCompiler
+
     //ReactiveX
     implementation reactiveX.rxAndroid
     implementation reactiveX.rxJava
+
+    implementation video.exoplayer
 
     //For logging
     implementation utils.timber
@@ -69,10 +85,20 @@ dependencies {
     //For debug build only
     debugImplementation  compose.uiTooling
     debugImplementation  compose.uiTestManifest
+    //Checking memory leak
+    debugImplementation utils.leakCanary
 
-    //For Testing
-    testImplementation junit.JUnit
+    //For instrumented tests
+
     androidTestImplementation androidx.testExtJunit
     androidTestImplementation androidx.testExpressoCore
     androidTestImplementation compose.uiTestJUnit4
+
+    //For local unit tests
+    testImplementation junit.JUnit
+
+}
+
+kapt {
+    correctErrorTypes true
 }

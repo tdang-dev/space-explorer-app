@@ -1,0 +1,16 @@
+UI
+- bottom navigation: Home, Favorites, Menu
+- search bar
+- welcome text
+- list of body types: planet, moons, etc in Home page
+- settings in Menu
+- background is a body picture, changes with each app fresh launch
+
+
+
+User flows:
+- Open app, see search bar, can serach for new body
+- When search, new page slide up from bottom revealing detail info
+- There is a list of body types, when user taps, a page slide up with list of bodies of that type (picture and name), maybe 2 columns grid
+- user can go to settings to change app theme to light/dark.
+

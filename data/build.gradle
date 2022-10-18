@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id "org.jetbrains.kotlin.kapt"
 }
+
+apply plugin: 'com.google.dagger.hilt.android'
 
 android {
     compileSdk rootProject.ext.compileSdkVersion
@@ -32,7 +35,20 @@ android {
 dependencies {
 
     implementation androidx.coreKtx
-    implementation androidx.lifecycleRuntimeKtx
+
+    implementation androidx.viewModelKtx
+    implementation androidx.liveDataKtx
+    kapt androidx.lifecycleCompiler
+    implementation androidx.lifecycleViewModelCompose
+    
+    //Dependency injection
+    //Hilt
+    implementation di.hilt
+    kapt di.hiltCompiler
+    androidTestImplementation di.hiltTesting
+    kaptAndroidTest di.hiltCompiler
+    testImplementation di.hiltTesting
+    kaptTest di.hiltCompiler
 
     //ReactiveX
     implementation reactiveX.rxAndroid
