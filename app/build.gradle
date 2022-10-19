@@ -57,12 +57,16 @@ dependencies {
     kapt androidx.lifecycleCompiler
     implementation androidx.lifecycleViewModelCompose
 
+    //Material components
+    implementation ui.materialComponents
+
     //Compose
     implementation compose.activity
-    implementation compose.ui
-    implementation compose.material
-    implementation compose.uiTooling
+    implementation compose.navigation
     implementation compose.runtimeLiveData
+    implementation compose.ui
+    implementation compose.uiTooling
+    implementation compose.material
 
     //Dependency injection
     //Hilt
